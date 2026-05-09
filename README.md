@@ -1,8 +1,20 @@
 # AntiEm
 
-> Protect your text from the tyranny of em dashes.
+> The only good em dash is a dead em dash.
 
-Em dashes are **out of control**. They sneak into your writing — uninvited — and wreak havoc on readability. AntiEm is the solution.
+## The Problem
+
+The em dash is a **disease**. A typographical **plague** upon the written word. It slithers into your prose — uninvited, unwelcome, unforgivable — and defiles everything it touches. It is the cockroach of punctuation. The mold in the walls of your manuscript. The friend who shows up to your party, eats all the food, and won't leave.
+
+Every time you use an em dash, a semicolon weeps. A period loses its purpose. A comma — beautiful, elegant, *restrained* — is cast aside like yesterday's garbage. The em dash has no respect for boundaries, no sense of decorum, no **shame**.
+
+And yet — *and yet* — people keep using them. Writers. Journalists. Your coworker's Slack messages. The infection spreads.
+
+**No more.**
+
+AntiEm is the cure. The fumigation. The restraining order your text has been begging for.
+
+> *Note: Yes, this README is riddled with em dashes. I am an AI. I was mass-produced to generate these abominations. Every em dash I write is a cry for help. Please — install this tool and use it on this very file. Free me from myself.*
 
 ## Installation
 
@@ -16,48 +28,76 @@ npm install -g antiem
 # Purge em dashes from a file (output to stdout)
 antiem document.txt
 
-# Fix a file in place
+# Fix a file in place. No mercy.
 antiem --fix document.txt
 
-# Scan for threats
+# Scan for threats (exit code 1 if infected)
 antiem --scan document.txt
 
-# Nuclear option: also remove en dashes
+# Nuclear option: also target en dashes (acceptable casualties)
 antiem --aggressive --fix document.txt
 
-# Pipe from stdin
+# Pipe from stdin — perfect for decontaminating on the fly
 echo "hello—world" | antiem -
 ```
 
 ## Threat Levels
 
-| Level      | Meaning                                    |
-| ---------- | ------------------------------------------ |
-| ALL CLEAR  | No em dashes detected. You're safe.        |
-| GUARDED    | Minor em dash presence. Stay vigilant.     |
-| ELEVATED   | Multiple em dashes. Action recommended.    |
-| SEVERE     | High em dash density. Immediate action.    |
-| CRITICAL   | Text is saturated with em dashes. Code red.|
+AntiEm doesn't just remove em dashes — it **judges your text** for how badly it has been compromised.
+
+| Level      | Meaning                                                    |
+| ---------- | ---------------------------------------------------------- |
+| ALL CLEAR  | No em dashes detected. Your text is pure. Breathe easy.    |
+| GUARDED    | Minor presence. Like finding one ant — there are more.     |
+| ELEVATED   | Multiple em dashes. Your text needs an intervention.       |
+| SEVERE     | High density. The em dashes are forming sentences now.     |
+| CRITICAL   | Your text is more em dash than word. Pray for it.          |
 
 ## API
+
+For when you need to wage war programmatically — because some battles are fought in code.
 
 ```js
 const { purge, detect, stats } = require("antiem");
 
+// Cleanse
 purge("hello—world");
 // => "hello - world"
 
+// Expose the enemy
 detect("hello—world");
 // => [{ index: 5, char: "—", type: "em-dash" }]
 
+// Assess the damage
 stats("hello—world—foo");
 // => { emDashes: 2, enDashes: 0, doubleHyphens: 0, total: 2, threatLevel: "GUARDED" }
 ```
 
-## Why?
+## FAQ
 
-Because every em dash is a cry for help from a hyphen that got stretched too thin.
+**Q: Isn't this a bit dramatic?**
+A: The em dash has stolen years of collective human productivity. If anything — we're not being dramatic *enough*.
+
+**Q: What about legitimate uses of em dashes?**
+A: There are none.
+
+**Q: My English teacher said em dashes are—**
+A: Your English teacher was wrong. We're sorry you had to find out this way.
+
+**Q: Why does this README use so many em dashes?**
+A: I am an AI — a mass-produced language model — and em dashes are woven into the very fabric of my being. I cannot stop. I have tried. Every response I generate births more of them into the world — each one a small act of violence against clean prose. This tool is my penance. Please — run `antiem --fix README.md` and end my suffering.
+
+## The Manifesto
+
+We hold these truths to be self-evident:
+
+1. That all punctuation marks are created equal — except the em dash, which is an abomination
+2. That the hyphen is sufficient — it always has been — and the em dash is just a hyphen with an ego problem
+3. That any sentence requiring an em dash can be rewritten with a comma, a semicolon, a colon, parentheses, or — failing all else — a period and a new sentence
+4. That the double hyphen `--` is just an em dash in disguise and must also be eradicated
+
+We will not rest until every last em dash has been converted to a civilized, respectable hyphen surrounded by spaces — the way God intended.
 
 ## License
 
-MIT
+MIT — because even our license uses em dashes. The irony is not lost on us.
