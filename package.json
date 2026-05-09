@@ -1,0 +1,21 @@
+{
+  "name": "antiem",
+  "version": "1.0.0",
+  "description": "Protect your text from the tyranny of em dashes",
+  "main": "index.js",
+  "bin": {
+    "antiem": "./cli.js"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "em-dash",
+    "emdash",
+    "typography",
+    "purge",
+    "cleanse",
+    "liberation"
+  ],
+  "license": "MIT"
+}
