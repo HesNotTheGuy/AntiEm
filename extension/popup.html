@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 320px;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #0a0a0a;
+      color: #e0e0e0;
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #1a0000, #330000);
+      padding: 16px;
+      text-align: center;
+      border-bottom: 2px solid #ff2222;
+    }
+
+    .header h1 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #ff4444;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .header .tagline {
+      font-size: 10px;
+      color: #aa4444;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    .threat-box {
+      margin: 12px;
+      padding: 14px;
+      border-radius: 8px;
+      text-align: center;
+      border: 1px solid #333;
+      background: #111;
+    }
+
+    .threat-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #888;
+      margin-bottom: 6px;
+    }
+
+    .threat-level {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .threat-count {
+      font-size: 12px;
+      color: #888;
+      margin-top: 4px;
+    }
+
+    .threat-ALL-CLEAR { color: #44ff44; }
+    .threat-GUARDED { color: #ffff44; }
+    .threat-ELEVATED { color: #ffaa22; }
+    .threat-SEVERE { color: #ff6622; }
+    .threat-CRITICAL { color: #ff2222; text-shadow: 0 0 10px #ff0000; }
+
+    .actions {
+      padding: 0 12px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.15s;
+    }
+
+    button:hover {
+      transform: scale(1.02);
+    }
+
+    .btn-purge {
+      background: linear-gradient(135deg, #cc0000, #990000);
+      color: white;
+    }
+
+    .btn-purge:hover {
+      background: linear-gradient(135deg, #ee0000, #bb0000);
+    }
+
+    .btn-scan {
+      background: #222;
+      color: #ff6644;
+      border: 1px solid #ff4422;
+    }
+
+    .settings {
+      padding: 8px 12px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 10px;
+      background: #151515;
+      border-radius: 6px;
+      border: 1px solid #222;
+    }
+
+    .toggle-label {
+      font-size: 12px;
+    }
+
+    .toggle-desc {
+      font-size: 9px;
+      color: #666;
+      margin-top: 2px;
+    }
+
+    .switch {
+      position: relative;
+      width: 36px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      inset: 0;
+      background: #333;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .slider::before {
+      content: "";
+      position: absolute;
+      height: 14px;
+      width: 14px;
+      left: 3px;
+      bottom: 3px;
+      background: #888;
+      border-radius: 50%;
+      transition: 0.2s;
+    }
+
+    input:checked + .slider {
+      background: #cc0000;
+    }
+
+    input:checked + .slider::before {
+      transform: translateX(16px);
+      background: white;
+    }
+
+    .result-toast {
+      margin: 0 12px 12px;
+      padding: 10px;
+      border-radius: 6px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      display: none;
+      animation: fadeIn 0.2s;
+    }
+
+    .result-toast.show { display: block; }
+    .result-toast.success { background: #0a2a0a; color: #44ff44; border: 1px solid #44ff44; }
+    .result-toast.empty { background: #1a1a0a; color: #aaaa44; border: 1px solid #666622; }
+
+    .lifetime {
+      text-align: center;
+      padding: 8px;
+      font-size: 10px;
+      color: #444;
+      border-top: 1px solid #1a1a1a;
+    }
+
+    .lifetime span {
+      color: #ff4444;
+      font-weight: 700;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>AntiEm</h1>
+    <div class="tagline">The only good em dash is a dead em dash.</div>
+  </div>
+
+  <div class="threat-box">
+    <div class="threat-label">Current Threat Level</div>
+    <div class="threat-level" id="threatLevel">SCANNING...</div>
+    <div class="threat-count" id="threatCount"></div>
+  </div>
+
+  <div class="actions">
+    <button class="btn-purge" id="purgeBtn">Purge This Page</button>
+    <button class="btn-scan" id="scanBtn">Re-Scan</button>
+  </div>
+
+  <div class="result-toast" id="toast"></div>
+
+  <div class="settings">
+    <div class="toggle">
+      <div>
+        <div class="toggle-label">Auto-Purge</div>
+        <div class="toggle-desc">Destroy em dashes on every page automatically</div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="autoMode">
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="toggle">
+      <div>
+        <div class="toggle-label">Aggressive Mode</div>
+        <div class="toggle-desc">Also target en dashes (nuclear option)</div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="aggressive">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <div class="lifetime">
+    Lifetime em dashes destroyed: <span id="lifetimeCount">0</span>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

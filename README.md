@@ -18,11 +18,31 @@ AntiEm is the cure. The fumigation. The restraining order your text has been beg
 
 ## Installation
 
+### CLI
+
 ```bash
 npm install -g antiem
 ```
 
-## Usage
+### Chrome Extension
+
+The em dash doesn't just live in your files — it lives in your **browser**. Every article, every tweet, every webpage is a potential vector.
+
+1. Clone this repo
+2. Open `chrome://extensions`
+3. Enable "Developer mode"
+4. Click "Load unpacked" and select the `extension/` folder
+5. Watch the em dashes burn
+
+Features:
+- **Threat Scanner** — real-time threat level assessment for any webpage
+- **One-Click Purge** — instantly destroy every em dash on the page
+- **Auto-Purge Mode** — automatically cleanse pages as they load (for the truly committed)
+- **Aggressive Mode** — nuclear option that also targets en dashes
+- **Lifetime Kill Counter** — track your lifetime contribution to a cleaner internet
+- **MutationObserver** — catches em dashes injected by SPAs and infinite scroll (they can run but they can't hide)
+
+## CLI Usage
 
 ```bash
 # Purge em dashes from a file (output to stdout)
