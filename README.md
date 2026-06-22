@@ -42,6 +42,20 @@ Features:
 - **Lifetime Kill Counter** — track your lifetime contribution to a cleaner internet
 - **MutationObserver** — catches em dashes injected by SPAs and infinite scroll (they can run but they can't hide)
 
+### Enterprise Edition™
+
+Is a single-line string replacement *really* sufficient for your organization's mission-critical em dash remediation needs? **No.**
+
+[**AntiEm Enterprise Edition™**](enterprise/) reimagines `text.replaceAll("—", " - ")` as a cloud-native, blockchain-audited, AI-powered, six-stage processing pipeline:
+
+- **🧠 Neural network classifier** (DASH-BERT v1) assigns each character a calibrated threat-confidence score via a genuine forward pass
+- **⛓️ Immutable blockchain ledger** mines one SHA-256 Proof-of-Work block per em dash, for a permanent, regulator-ready audit trail
+- **🔁 Finite state machine** escorts every threat through a seven-state neutralization ceremony — no em dash is deleted without due process
+- **💉 Dependency-injection container** wiring fourteen collaborating services
+- **📡 Event bus**, **fluent configuration builder**, and an **enterprise observability firehose** with five log levels
+
+It produces exactly the same output as the one-liner. See [`enterprise/`](enterprise/) for the full architecture diagram and the list of ten design patterns we employed without shame.
+
 ## CLI Usage
 
 ```bash

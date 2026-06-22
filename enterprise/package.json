@@ -1,0 +1,30 @@
+{
+  "name": "antiem-enterprise-edition",
+  "version": "1.0.0-ENTERPRISE",
+  "description": "A cloud-native, blockchain-audited, AI-powered, enterprise-grade solution for mission-critical em dash remediation at scale.",
+  "main": "src/index.js",
+  "bin": {
+    "antiem-enterprise": "./cli.js"
+  },
+  "scripts": {
+    "test": "node test.js",
+    "purge": "node cli.js"
+  },
+  "keywords": [
+    "em-dash",
+    "enterprise",
+    "blockchain",
+    "machine-learning",
+    "microservices",
+    "dependency-injection",
+    "finite-state-machine",
+    "synergy",
+    "scalable",
+    "mission-critical",
+    "digital-transformation"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
