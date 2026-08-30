@@ -1,0 +1,22 @@
+{
+  "name": "antiem-ceremonial",
+  "version": "1.0.0",
+  "description": "Remove em dashes via a thirteen-step bureaucratic extinction ceremony. Equivalent to text.replaceAll('—', ' - '), but with paperwork.",
+  "main": "src/index.js",
+  "bin": {
+    "antiem-ceremonial": "./cli.js"
+  },
+  "scripts": {
+    "test": "node test.js",
+    "ceremony": "node cli.js"
+  },
+  "keywords": [
+    "em-dash",
+    "ceremony",
+    "bureaucracy",
+    "twelve-steps",
+    "rube-goldberg",
+    "joke"
+  ],
+  "license": "MIT"
+}

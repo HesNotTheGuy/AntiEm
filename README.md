@@ -42,6 +42,28 @@ Features:
 - **Lifetime Kill Counter** — track your lifetime contribution to a cleaner internet
 - **MutationObserver** — catches em dashes injected by SPAs and infinite scroll (they can run but they can't hide)
 
+### Ceremonial Edition
+
+Is `text.replaceAll("—", " - ")` too direct for your spiritual needs? **Yes.**
+
+[**AntiEm Ceremonial Edition**](ceremonial/) removes em dashes via a **thirteen-step extinction ceremony**:
+
+1. Sign a waiver confessing you know a one-liner would suffice
+2. Catalog every character's Unicode bloodline
+3. Dit-dah the corpus into Morse code
+4. Convene Parliament for a unanimous expulsion vote
+5. Carbon-date the infection in triplicate
+6. Consult the stars (file an override if Mercury is retrograde)
+7. Form a subcommittee to form a working group
+8. Hold a mock trial before twelve angry hyphens
+9. Notarize the verdicts with red wax
+10. Ship each convict to P.O. Box 0, Null Island
+11. Deny three rounds of appeals
+12. **Actually delete the em dash** (the only step that edits the string)
+13. Hold a victory parade and file the after-action report
+
+Same output as the one-liner. Approximately 247 lines of bureaucracy per engagement. See [`ceremonial/`](ceremonial/) for the liturgy.
+
 ## CLI Usage
 
 ```bash
